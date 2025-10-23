@@ -16,9 +16,9 @@ function HeaderIcons(){
     return (
         <Icons>
           {
-            icons.map((icon) => (
-              <Icon>
-                <img src={icon}>
+            icons.map((icon, index) => (
+              <Icon key={index}>
+                <img src={icon} alt='Icon Description'>
                 </img>
               </Icon>
             ))

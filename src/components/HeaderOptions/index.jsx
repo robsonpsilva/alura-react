@@ -21,8 +21,8 @@ const textOptions = ['Categorias', 'Minha Estante', 'Favoritos']
 function HeaderOptions(){
     return(
         <MenuOptions>
-          {textOptions.map((text) => (
-            <MenuOption>{text}</MenuOption>
+          {textOptions.map((text,index) => (
+            <MenuOption key={index}>{text}</MenuOption>
           ))}
         </MenuOptions>
     )
