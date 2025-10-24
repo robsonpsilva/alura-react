@@ -23,9 +23,19 @@ const Subtitle = styled.h3`
     font-weight: 500;
     margin-bottom: 40px;
 `;
+
+const Result = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+    p{ width: 200px; }
+    img { width: 100px; }
+    &:hover { border: 2px solid white; }
+`
 function Search() {
     const [searchedBook, setSearchedBook] = useState([]);
-    console.log(searchedBook);
     return (
         <SearchContainer>
             <Title>Ja sabe onde começar</Title>
@@ -37,6 +47,12 @@ function Search() {
                     const filteredBooks = books.filter(book => book.title.toLowerCase().includes(searchTerm.toLowerCase()));
                     setSearchedBook(filteredBooks);
                 }}/>
+                {searchedBook.map(book => (
+                    <Result>
+                        <p>{book.title}</p>
+                        <img key={book.id} src={book.src} alt={book.title} />
+                    </Result>
+                ))}
         </SearchContainer>
         
     );
